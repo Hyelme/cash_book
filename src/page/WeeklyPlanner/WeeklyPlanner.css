@@ -1,0 +1,5 @@
+.label-box {
+    /* font-size: 12px; */
+    display: inline-flex;
+    overflow-x: hidden;
+}

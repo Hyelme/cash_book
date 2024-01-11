@@ -7,7 +7,7 @@ const Monthly = () => {
   return (
     <Routes>
       <Route
-        path={UrlPaths.cashbook.monthly.calender}
+        path={UrlPaths.cashbook.monthly.calendar}
         element={<WeeklyPlanner />}
       />
       <Route path={UrlPaths.cashbook.monthly.weekly} element={''} />
