@@ -1,0 +1,220 @@
+/* 공통 */
+.hexagon {
+    position: relative;
+    float:left;
+    font-size: 10px;
+}
+
+/* Digital Panel 위치 */
+/* 수평 위치 */
+.horizontal-center {
+    /* top: 2.3px; */
+
+    /* top: 3.5%; */
+
+    top: 0.22em;
+}
+
+.horizontal-bottom {
+    /* top: 4px;
+    left: 0.1px; */
+
+    /* top: 5.3%;
+    left: 1.1%; */
+
+    top: 0.4em;
+    left: 0.05em;
+}
+
+/* 수직 위치 */
+.vertical-left-top {
+    /* top: 10px;
+    left: -32.5px; */
+
+    /* top: 15.5%;
+    left: -75.5%; */
+
+    top: 0.99em;
+    left: -3.28em;
+}
+
+.vertical-right-top {
+    /* top: 9.7px;
+    left: -8.5px; */
+
+    /* top: 15%;
+    left: -19.3%; */
+
+    top: 0.95em;
+    left: -0.83em;
+}
+
+.vertical-left-bottom {
+    /* top: 12px;
+    left: -32.7px; */
+
+    /* top: 17.5%;
+    left: -77%; */
+
+    top: 1.2em;
+    left: -3.31em;
+}
+
+.vertical-right-bottom {
+    /* top: 11.7px;
+    left: -8px; */
+
+    /* top: 17.5%;
+    left: -19.3%; */
+
+    top: 1.21em;
+    left: -0.83em;
+}
+
+/* 수평 active */
+.horizontal-active {
+    width: 50%;
+    aspect-ratio: 1 / 0.19;
+    margin: 1vw 0;
+    background-color: #957E5F;
+    border-top: solid 2.99px #957E5F; /* 외곽라인 두께및 색상 */
+    border-bottom: solid 2.99px #957E5F; /* 외곽라인 두께및 색상 */
+}
+
+.horizontal-active:before,
+.horizontal-active:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -47%;
+    width: 26%;
+    aspect-ratio: 1 / 1;
+    -webkit-transform: scaleY(0.8627) rotate(225deg);
+    -ms-transform: scaleY(0.8627) rotate(225deg);
+    transform: scaleY(0.8627) rotate(225deg);
+    background-color: inherit;
+}
+
+
+.horizontal-active:before {
+    left: -19%;
+    border-top: solid 2.499px #957E5F; /* 외곽라인 두께및 색상 */
+    border-right: solid 2.499px #957E5F; /* 외곽라인 두께및 색상 */
+}
+
+.horizontal-active:after {
+    right: -20%;
+    border-bottom: solid 2.499px #957E5F; /* 외곽라인 두께및 색상 */
+    border-left: solid 2.499px #957E5F; /* 외곽라인 두께및 색상 */
+}
+
+
+/* 수평 non-active */
+.horizontal-non-active {
+    width: 50%;
+    aspect-ratio: 1 / 0.19;
+    margin: 1vw 0;
+    background-color: #ffffff;
+    border-top: solid 2.99px #957E5F; /* 외곽라인 두께및 색상 */
+    border-bottom: solid 2.99px #957E5F; /* 외곽라인 두께및 색상 */
+}
+
+.horizontal-non-active:before,
+.horizontal-non-active:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -47%;
+    width: 26%;
+    aspect-ratio: 1 / 1;
+    -webkit-transform: scaleY(0.8627) rotate(225deg);
+    -ms-transform: scaleY(0.8627) rotate(225deg);
+    transform: scaleY(0.8627) rotate(225deg);
+    background-color: inherit;
+}
+
+.horizontal-non-active:before {
+    left: -19%;
+    border-top: solid 2.499px #957E5F; /* 외곽라인 두께및 색상 */
+    border-right: solid 2.499px #957E5F; /* 외곽라인 두께및 색상 */
+}
+
+.horizontal-non-active:after {
+    right: -20%;
+    border-bottom: solid 2.499px #957E5F; /* 외곽라인 두께및 색상 */
+    border-left: solid 2.499px #957E5F; /* 외곽라인 두께및 색상 */
+}
+
+/* 수직 active */
+.vertical-active {
+    width: calc(10vw * 0.23 * 0.5);
+    aspect-ratio: 0.23 / 1;
+    margin: 1vw 0;
+    background-color: #957E5F;
+    border-left: solid 2.99px #957E5F; /* 외곽라인 두께및 색상 */
+    border-right: solid 2.99px #957E5F; /* 외곽라인 두께및 색상 */
+}
+
+.vertical-active:before,
+.vertical-active:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: -24%;
+    height: 24%;
+    aspect-ratio: 1 / 1;
+    -webkit-transform: scaleY(0.8627) rotate(45deg);
+    -ms-transform: scaleY(0.8627) rotate(45deg);
+    transform: scaleY(0.8627) rotate(45deg);
+    background-color: inherit;
+}
+
+
+.vertical-active:before {
+    top: -17%;
+    border-top: solid 2.499px #957E5F; /* 외곽라인 두께및 색상 */
+    border-left: solid 2.499px #957E5F; /* 외곽라인 두께및 색상 */
+}
+
+.vertical-active:after {
+    bottom: -17%;
+    border-bottom: solid 2.499px #957E5F; /* 외곽라인 두께및 색상 */
+    border-right: solid 2.499px #957E5F; /* 외곽라인 두께및 색상 */
+}
+
+/* 수직 non-active */
+.vertical-non-active {
+    width: calc(10vw * 0.23 * 0.5);
+    aspect-ratio: 0.23 / 1;
+    margin: 1vw 0;
+    background-color: #ffffff;
+    border-left: solid 2.99px #957E5F; /* 외곽라인 두께및 색상 */
+    border-right: solid 2.99px #957E5F; /* 외곽라인 두께및 색상 */
+}
+
+.vertical-non-active:before,
+.vertical-non-active:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: -24%;
+    height: 24%;
+    aspect-ratio: 1 / 1;
+    -webkit-transform: scaleY(0.8627) rotate(45deg);
+    -ms-transform: scaleY(0.8627) rotate(45deg);
+    transform: scaleY(0.8627) rotate(45deg);
+    background-color: inherit;
+}
+
+
+.vertical-non-active:before {
+    top: -17%;
+    border-top: solid 2.499px #957E5F; /* 외곽라인 두께및 색상 */
+    border-left: solid 2.499px #957E5F; /* 외곽라인 두께및 색상 */
+}
+
+.vertical-non-active:after {
+    bottom: -17%;
+    border-bottom: solid 2.499px #957E5F; /* 외곽라인 두께및 색상 */
+    border-right: solid 2.499px #957E5F; /* 외곽라인 두께및 색상 */
+}
