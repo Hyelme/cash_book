@@ -1,4 +1,33 @@
+.btn-container {
+    display: flex;
+}
+
+.medium {
+    font-size: 15px;
+    width: 8em;
+    height: 2em;
+    padding: 0.5em 1em 0.5em 1em;
+}
+
+.medium-front {
+    font-size: 20px;
+    font-weight: 700;
+    width: 1.7em;
+    height: 1.7em;
+}
+
 /* 라벨 모양 버튼(ex. 목차 페이지로 이동 버튼) */
+.label-btn-front {
+    border-radius: 5px;
+    background-color: #ffe4a9;
+    box-shadow: 0px 1px 1px 0px darkgray;
+    color: #b7ab92;
+    z-index: -3;
+}
+
+.label {
+    border: 0px;
+}
 
 /* 일반 버튼(포인트색, 흰색) */
 

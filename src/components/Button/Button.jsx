@@ -6,7 +6,7 @@ import classNames from "classnames/bind";
 const cx = classNames.bind(styles);
 
 const Button = ({
-  theme = "secondary",
+  theme = "basic",
   size = "medium",
   backgroundColor,
   className,
@@ -15,15 +15,20 @@ const Button = ({
   ...props
 }) => {
   return (
-    <button
-      type="button"
-      className={cx("button", size, theme, className)}
-      style={{ backgroundColor }}
-      disabled={isDisabled}
-      {...props}
-    >
-      {children}
-    </button>
+    <div className="btn-container">
+      {theme === "label" && (
+        <div className={`label-btn-front ${size}-front`}>₩</div>
+      )}
+      <button
+        type="button"
+        className={cx("button", size, theme, className)}
+        style={{ backgroundColor }}
+        disabled={isDisabled}
+        {...props}
+      >
+        {children}
+      </button>
+    </div>
   );
 };
 
