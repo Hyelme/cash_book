@@ -6,7 +6,6 @@ const MonthsLabel = ({ number }) => {
   const handleOnClick = () => {
     return navigate(`/cashbook/2024/monthly/${number}/calendar`);
   };
-
   return (
     <div className="LabelComponent" onClick={handleOnClick}>
       <div>{number}</div>
