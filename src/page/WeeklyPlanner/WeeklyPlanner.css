@@ -1,4 +1,3 @@
-/* .label-box {
-    display: inline-flex;
-    overflow-x: hidden;
-} */
+.calendar-container > * {
+    width: 100%;
+}
