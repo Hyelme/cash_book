@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import DigitalPanelHorizontal from "./DigitalPanelHorizontal";
 import DigitalPanelVertical from "./DigitalPanelVertical";
@@ -55,7 +55,10 @@ const DigitalPanel = ({ month }) => {
 
 const Container = styled.div`
   flex: 0 42px;
-  max-height: 7vh;
+  min-width: 42px;
+  max-width: 42px;
+  min-height: 42px;
+  max-height: 42px;
   justify-items: start;
   padding: 0 3px;
 `;
