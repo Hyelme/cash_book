@@ -5,15 +5,15 @@ export const UrlPaths = {
       init: '/init',
     },
     cashbook: {
-      index: '/cashbook/:years/*',
+      index: '/cashbook/:year/*',
       cover: '/cover',
       goal: '/goals',
       budgetCheck: '/budgetCheck',
       financeList: '/financeList',
       monthly: {
-        index: '/monthly/:months/*',
+        index: '/monthly/:month/*',
         calendar: '/calendar',
-        weekly: '/weekly/:weeks',
+        weekly: '/weekly/:week',
         closing: '/closing',
       },
     },
