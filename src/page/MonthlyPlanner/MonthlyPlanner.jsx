@@ -2,12 +2,11 @@ import { useEffect, useLayoutEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import {
   payPlanColumn,
-  payPlanData,
   calendarColumns,
   weeklyClosingColumns,
   weeklyClosingData,
   oneColTableColumn,
-} from "./data/WeeklyPlannerTableData";
+} from "./data/MonthlyPlannerTableData";
 import {
   initPayPlanCell,
   initOneTableColumn,
@@ -15,8 +14,8 @@ import {
   initFixedExpenditure,
   setLocalStorage,
   getSaveData,
-} from "./data/WeeklyPlannerFunc";
-import WeeklyPlannerView from "./WeeklyPlannerView";
+} from "./data/MonthlyPlannerFunc";
+import WeeklyPlannerView from "./MonthlyPlannerView";
 import TableCell from "components/Table/components/TableCell";
 
 const WeeklyPlanner = () => {

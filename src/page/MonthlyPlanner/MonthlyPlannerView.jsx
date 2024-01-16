@@ -1,4 +1,4 @@
-import "./WeeklyPlanner.css";
+import "./MonthlyPlanner.css";
 import MonthsLabel from "components/Label/MonthsLabel";
 import HeaderLine from "components/HeaderLine";
 import Button from "components/Button";
@@ -15,7 +15,7 @@ import {
   oneColTableClassNameList,
   fixedExpenditureClassNameList,
   memoClassNameList,
-} from "./data/WeeklyPlannerTableData";
+} from "./data/MonthlyPlannerTableData";
 import { useEffect, useState } from "react";
 
 // export interface ButtonProps {

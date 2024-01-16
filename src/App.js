@@ -1,14 +1,14 @@
 import { Route, Routes } from 'react-router-dom';
 import { UrlPaths } from './routes';
 import './App.css';
-import WeeklyPlanner from 'page/WeeklyPlanner';
+import MonthlyPlanner from 'page/MonthlyPlanner';
 
 const Monthly = () => {
   return (
     <Routes>
       <Route
         path={UrlPaths.cashbook.monthly.calendar}
-        element={<WeeklyPlanner />}
+        element={<MonthlyPlanner />}
       />
       <Route path={UrlPaths.cashbook.monthly.weekly} element={''} />
       <Route path={UrlPaths.cashbook.monthly.closing} element={''} />
