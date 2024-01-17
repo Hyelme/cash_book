@@ -47,10 +47,7 @@ const Container = styled.div`
   position: relative;
   overflow: hidden;
   width: 100%;
-
-  img {
-    pointer-events: none;
-  }
+  height: 200%;
 `;
 
 const Slider = styled.div`
@@ -59,6 +56,7 @@ const Slider = styled.div`
   cursor: grab;
 
   width: 100%;
+  height: 100%;
   overflow-y: hidden;
   overflow-x: scroll;
 
