@@ -12,7 +12,7 @@ export const UrlPaths = {
       financeList: '/financeList',
       monthly: {
         index: '/monthly/:month/*',
-        calendar: '/calendar',
+        planner: '/planner',
         weekly: '/weekly/:week',
         closing: '/closing',
       },

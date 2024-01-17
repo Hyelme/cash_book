@@ -16,7 +16,7 @@ const CashbookLayout = ({ children }) => {
   const handleOnClickMonthLabel = (event) => {
     setCurrMonth(event.target.innerText);
     // store month 변경
-    navigator(`/cashbook/2024/monthly/${event.target.innerText}/calendar`);
+    navigator(`/cashbook/2024/monthly/${event.target.innerText}/planner`);
   };
   const handleOnClickGoToIndexButton = () => {
     navigator(`/cashbook/2024/cover`);
