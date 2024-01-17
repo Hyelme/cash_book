@@ -114,9 +114,9 @@
     width: 50%;
     aspect-ratio: 1 / 0.19;
     /* margin: 1vw 0; */
-    background-color: #ffffff;
-    border-top: solid 2.99px #957E5F; /* 외곽라인 두께및 색상 */
-    border-bottom: solid 2.99px #957E5F; /* 외곽라인 두께및 색상 */
+    background-color: #ffffff00;
+    border-top: solid 2.99px #b7afa4; /* 외곽라인 두께및 색상 */
+    border-bottom: solid 2.99px #b7afa4; /* 외곽라인 두께및 색상 */
 }
 
 .horizontal-non-active:before,
@@ -135,14 +135,14 @@
 
 .horizontal-non-active:before {
     left: -19%;
-    border-top: solid 2.499px #957E5F; /* 외곽라인 두께및 색상 */
-    border-right: solid 2.499px #957E5F; /* 외곽라인 두께및 색상 */
+    border-top: solid 2.499px #b7afa4; /* 외곽라인 두께및 색상 */
+    border-right: solid 2.499px #b7afa4; /* 외곽라인 두께및 색상 */
 }
 
 .horizontal-non-active:after {
     right: -20%;
-    border-bottom: solid 2.499px #957E5F; /* 외곽라인 두께및 색상 */
-    border-left: solid 2.499px #957E5F; /* 외곽라인 두께및 색상 */
+    border-bottom: solid 2.499px #b7afa4; /* 외곽라인 두께및 색상 */
+    border-left: solid 2.499px #b7afa4; /* 외곽라인 두께및 색상 */
 }
 
 /* 수직 active */
@@ -189,9 +189,9 @@
     height: 50%;
     aspect-ratio: 0.19 / 1;
     /* margin: 8px 0; */
-    background-color: #ffffff;
-    border-left: solid 2.99px #957E5F; /* 외곽라인 두께및 색상 */
-    border-right: solid 2.99px #957E5F; /* 외곽라인 두께및 색상 */
+    background-color: #ffffff00;
+    border-left: solid 2.99px #b7afa4; /* 외곽라인 두께및 색상 */
+    border-right: solid 2.99px #b7afa4; /* 외곽라인 두께및 색상 */
 }
 
 .vertical-non-active:before,
@@ -211,12 +211,12 @@
 
 .vertical-non-active:before {
     top: -17%;
-    border-top: solid 2.499px #957E5F; /* 외곽라인 두께및 색상 */
-    border-left: solid 2.499px #957E5F; /* 외곽라인 두께및 색상 */
+    border-top: solid 2.499px #b7afa4; /* 외곽라인 두께및 색상 */
+    border-left: solid 2.499px #b7afa4; /* 외곽라인 두께및 색상 */
 }
 
 .vertical-non-active:after {
     bottom: -17%;
-    border-bottom: solid 2.499px #957E5F; /* 외곽라인 두께및 색상 */
-    border-right: solid 2.499px #957E5F; /* 외곽라인 두께및 색상 */
+    border-bottom: solid 2.499px #b7afa4; /* 외곽라인 두께및 색상 */
+    border-right: solid 2.499px #b7afa4; /* 외곽라인 두께및 색상 */
 }
