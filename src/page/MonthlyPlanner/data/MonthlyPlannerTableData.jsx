@@ -1,46 +1,75 @@
-const months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-
 /* ClassName List */
 const payPlanClassNameList = {
-  tableCN: "table off-vline",
+  tableCN: "table vertical-solid-line vertical-bold horizontal-off-line",
   thCN: "",
-  trCN: "on-dot-line",
-  tdCN: "",
+  trCN: "bottom-dash-line bottom-middle",
+  tdCN: ["right-solid-line right-bold", "right-dash-line right-middle", ""],
 };
 
 const calendarClassNameList = {
-  tableCN: "calendar on-dot-vline",
-  thCN: "",
-  trCN: "on-dot-line",
-  tdCN: "",
+  tableCN:
+    "calendar vertical-solid-line vertical-middle horizontal-dash-line horizontal-middle",
+  thCN: [
+    "bottom-solid-line bottom-middle right-dash-line right-middle",
+    "bottom-solid-line bottom-middle right-dash-line right-middle",
+    "bottom-solid-line bottom-middle right-dash-line right-middle",
+    "bottom-solid-line bottom-middle right-dash-line right-middle",
+    "bottom-solid-line bottom-middle right-dash-line right-middle",
+    "bottom-solid-line bottom-middle right-dash-line right-middle",
+    "bottom-solid-line bottom-middle ",
+  ],
+  trCN: "bottom-dash-line bottom-middle",
+  tdCN: [
+    "right-dash-line right-middle",
+    "right-dash-line right-middle",
+    "right-dash-line right-middle",
+    "right-dash-line right-middle",
+    "right-dash-line right-middle",
+    "right-dash-line right-middle",
+    "",
+  ],
 };
 
 const weeklyClosingClassNameList = {
-  tableCN: "table width100 on-dot-vline",
-  thCN: "",
+  tableCN: "table vertical-solid-line top-bold bottom-bold horizontal-off-line",
+  thCN: [
+    "vertical-solid-line top-thin bottom-thin horizontal-dash-line horizontal-thin",
+    "vertical-solid-line top-thin bottom-thin horizontal-dash-line horizontal-thin",
+    "vertical-solid-line top-thin bottom-thin horizontal-dash-line horizontal-thin",
+    "vertical-solid-line top-thin bottom-thin horizontal-dash-line horizontal-thin",
+    "vertical-solid-line top-thin bottom-thin horizontal-dash-line horizontal-thin",
+    "vertical-solid-line top-thin bottom-thin horizontal-dash-line horizontal-thin",
+  ],
   trCN: "",
-  tdCN: "",
+  tdCN: [
+    "horizontal-dash-line horizontal-thin",
+    "horizontal-dash-line horizontal-thin",
+    "horizontal-dash-line horizontal-thin",
+    "horizontal-dash-line horizontal-thin",
+    "horizontal-dash-line horizontal-thin",
+    "horizontal-dash-line horizontal-thin",
+  ],
 };
 
 const oneColTableClassNameList = {
-  tableCN: "table on-line",
-  thCN: "",
+  tableCN: "table one-table one-table-middle",
+  thCN: ["bottom-dash-line bottom-middle"],
   trCN: "",
   tdCN: "",
 };
 
 const fixedExpenditureClassNameList = {
-  tableCN: "table fixed-expenditure-table",
-  thCN: "",
+  tableCN: "table vertical-solid-line vertical-bold",
+  thCN: ["bottom-solid-line bottom-middle"],
   trCN: "",
   tdCN: "",
 };
 
 const memoClassNameList = {
-  tableCN: "memo on-line",
-  thCN: "",
+  tableCN: "memo vertical-solid-line vertical-thin",
+  thCN: ["bottom-solid-line bottom-thin"],
   trCN: "",
-  tdCN: "",
+  tdCN: ["background-color-white8c"],
 };
 
 /* 월간 계획 Table 데이터 */
@@ -135,6 +164,11 @@ const weeklyClosingColumns = [
         accessor: "fifthWeek",
         cell: (item) => item,
       },
+      {
+        Header: "6주 차",
+        accessor: "sixthWeek",
+        cell: (item) => item,
+      },
     ],
   },
 ];
@@ -146,6 +180,7 @@ const weeklyClosingData = [
     thirdWeek: <div>thridWeek</div>,
     fourthWeek: <div>fourthWeek</div>,
     fifthWeek: <div>fifthWeek</div>,
+    sixthWeek: <div>sixthWeek</div>,
   },
 ];
 
@@ -158,7 +193,6 @@ const oneColTableColumn = [
 ];
 
 export {
-  months,
   payPlanClassNameList,
   calendarClassNameList,
   weeklyClosingClassNameList,

@@ -1,3 +1,14 @@
 .calendar-container > * {
     width: 100%;
 }
+
+.memo {
+    height: -webkit-fill-available;
+}
+
+.textarea {
+    width: 90%;
+    height: 90%;
+    border: none;
+    background-color: #ffffff00;
+}

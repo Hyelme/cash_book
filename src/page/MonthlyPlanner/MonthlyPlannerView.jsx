@@ -1,14 +1,10 @@
 import "./MonthlyPlanner.css";
-import MonthsLabel from "components/Label/MonthsLabel";
-import HeaderLine from "components/HeaderLine";
 import Button from "components/Button";
 import DigitalPanel from "./components/DigitalPanel";
 import Table from "components/Table";
 import Calendar from "./components/Calendar";
-import Slider from "components/Slider";
 import styled from "styled-components";
 import {
-  months,
   payPlanClassNameList,
   calendarClassNameList,
   weeklyClosingClassNameList,
@@ -17,6 +13,7 @@ import {
   memoClassNameList,
 } from "./data/MonthlyPlannerTableData";
 import { useEffect, useState } from "react";
+import CashbookLayout from "components/Layout/Cashbook";
 
 // export interface ButtonProps {
 //   theme?: "basic" | "label";
@@ -27,10 +24,9 @@ import { useEffect, useState } from "react";
 //   children?: React.ReactNode;
 //   className?: string;
 // }
-const WeeklyPlannerView = ({
+const MonthlyPlannerView = ({
   year,
   month,
-  clickLabel,
   colcBudget,
   payPlanTableColumns,
   payPlanTableData,
@@ -52,185 +48,172 @@ const WeeklyPlannerView = ({
   const [totalProfit, setTotalProfit] = useState(0);
   const [totalExpanditure, setTotalExpanditure] = useState(0);
 
-  const handleOnClickLabel = (event) => {
-    clickLabel(event);
-  };
-
   useEffect(() => {
     setTotalProfit(
       colcBudget(["prevMonthBalanc", "expectedProfit1", "expectedProfit2"])
     );
   }, [colcBudget]);
 
-  // for (let element in fixedExpenditure) {
-  //   for (let element2 in fixedExpenditure[element]) {
-  //     console.log(fixedExpenditure[element][element2]);
-  //   }
-  // }
-
   return (
-    <>
-      <HeaderContainer className="header-box">
-        <Slider
-          children={months.map((month) => (
-            <MonthsLabel number={month} key={month} />
-          ))}
+    <CashbookLayout>
+      <TopContainer>
+        <PanelContainer>
+          <DigitalPanel month={month < 10 ? 0 : 1} />
+          <DigitalPanel month={month < 10 ? month : month % 10} />
+        </PanelContainer>
+        <Table
+          classNameList={payPlanClassNameList}
+          columns={payPlanTableColumns}
+          data={payPlanTableData}
+          colgroupList={[30, 30, 40]}
         />
-      </HeaderContainer>
-      <HeaderLine />
-      <PageContainer className="page-container">
-        <GoToBox className="go-to-box">
-          <Button
-            theme="label"
-            size="medium"
-            backgroundColor="#F5EBD2"
-            onClick={handleOnClickLabel}
-          >
-            목차 페이지로
+        <ButtonContainer>
+          <Button theme="basic" size="small" backgroundColor="#ffe4a9">
+            월간 계획
           </Button>
-        </GoToBox>
-        <TopContainer>
-          <PanelContainer>
-            <DigitalPanel month={month < 10 ? 0 : 1} />
-            <DigitalPanel month={month < 10 ? month : month % 10} />
-          </PanelContainer>
+          <Button theme="basic" size="small" backgroundColor="#f1eee8">
+            월간 결산
+          </Button>
+        </ButtonContainer>
+      </TopContainer>
+      <CalendarContainer className="calendar-container">
+        <Calendar
+          classNameList={calendarClassNameList}
+          columns={calendarColumns}
+          year={year}
+          month={month}
+        />
+        <WeeklyClosingContainer>
           <Table
-            classNameList={payPlanClassNameList}
-            columns={payPlanTableColumns}
-            data={payPlanTableData}
+            classNameList={weeklyClosingClassNameList}
+            columns={weeklyClosingColumns}
+            data={weeklyClosingData}
           />
-          <ButtonContainer>
-            <Button theme="basic" size="medium">
-              월간 계획
-            </Button>
-            <Button theme="basic" size="medium">
-              월간 결산
-            </Button>
-          </ButtonContainer>
-        </TopContainer>
-        <CalendarContainer className="calendar-container">
-          <Calendar
-            classNameList={calendarClassNameList}
-            columns={calendarColumns}
-            year={year}
-            month={month}
-          />
-          <WeeklyClosingContainer>
-            <Table
-              classNameList={weeklyClosingClassNameList}
-              columns={weeklyClosingColumns}
-              data={weeklyClosingData}
-            />
-          </WeeklyClosingContainer>
-        </CalendarContainer>
-        <ExpectedBudgetContainer>
-          <ProfitContainer>
-            <Table
-              classNameList={oneColTableClassNameList}
-              columns={prevMonthBalanceColumn}
-              data={prevMonthBalanceData}
-            />
-            <Table
-              classNameList={oneColTableClassNameList}
-              columns={expectedProfit1Column}
-              data={expectedProfit1Data}
-            />
-            <Table
-              classNameList={oneColTableClassNameList}
-              columns={expectedProfit2Column}
-              data={expectedProfit2Data}
-            />
-          </ProfitContainer>
-          <TotalProfitContainer>
-            수입 합계 : {totalProfit} ₩
-          </TotalProfitContainer>
-          <FixedExpenditureContainer>
-            {fixedExpenditure.map((categori, index) => {
-              return (
-                <div key={index}>
-                  <Table
-                    classNameList={fixedExpenditureClassNameList}
-                    columns={categori["column"]}
-                    data={categori["data"]}
-                  />
-                </div>
-              );
-            })}
-            <TotalProfitContainer>
-              고정 지출 합계 : {totalExpanditure} ₩
-            </TotalProfitContainer>
-          </FixedExpenditureContainer>
-        </ExpectedBudgetContainer>
-        <PageBottomContainer>
+        </WeeklyClosingContainer>
+      </CalendarContainer>
+      <ExpectedBudgetContainer>
+        <ProfitContainer>
           <Table
-            classNameList={memoClassNameList}
-            columns={memoColumn}
-            data={memoData}
+            classNameList={oneColTableClassNameList}
+            columns={prevMonthBalanceColumn}
+            data={prevMonthBalanceData}
           />
           <Table
             classNameList={oneColTableClassNameList}
-            columns={currentBudgetColumn}
-            data={currentBudgetData}
+            columns={expectedProfit1Column}
+            data={expectedProfit1Data}
           />
-        </PageBottomContainer>
-      </PageContainer>
-    </>
+          <Table
+            classNameList={oneColTableClassNameList}
+            columns={expectedProfit2Column}
+            data={expectedProfit2Data}
+          />
+        </ProfitContainer>
+        <TotalBudgetContainer>
+          <BudgetItem>수입 합계 : </BudgetItem>
+          <BudgetItem>{totalProfit}</BudgetItem>
+          <BudgetItem>₩</BudgetItem>
+        </TotalBudgetContainer>
+        <FixedExpenditureContainer>
+          {fixedExpenditure.map((categori, index) => {
+            return (
+              <div key={index}>
+                <Table
+                  classNameList={fixedExpenditureClassNameList}
+                  columns={categori["column"]}
+                  data={categori["data"]}
+                />
+              </div>
+            );
+          })}
+          <TotalBudgetContainer>
+            <BudgetItem>고정 지출 합계 : </BudgetItem>
+            <BudgetItem>{totalExpanditure}</BudgetItem>
+            <BudgetItem>₩</BudgetItem>
+          </TotalBudgetContainer>
+        </FixedExpenditureContainer>
+      </ExpectedBudgetContainer>
+      <PageBottomContainer>
+        <Table
+          classNameList={memoClassNameList}
+          columns={memoColumn}
+          data={memoData}
+        />
+        <Table
+          classNameList={{
+            ...oneColTableClassNameList,
+            tableCN: oneColTableClassNameList.tableCN + " height-30",
+          }}
+          columns={currentBudgetColumn}
+          data={currentBudgetData}
+        />
+      </PageBottomContainer>
+    </CashbookLayout>
   );
 };
 
-const HeaderContainer = styled.div``;
-const PageContainer = styled.div`
-  margin: 0 5%;
-`;
-const GoToBox = styled.div``;
 const TopContainer = styled.div`
   display: flex;
-  margin-top: 15%;
 `;
-
 const PanelContainer = styled.div`
   display: flex;
-  margin-right: 10px;
+  position: relative;
+  margin-left: 10px;
+  top: -7px;
 `;
 
 const ButtonContainer = styled.div`
-  // display; -webkit-inline-box;
   display: grid;
+  margin-left: 10px;
 `;
 
 const CalendarContainer = styled.div`
   display: table;
-  margin-top: 5%;
+  margin: 5% 0;
   width: 100%;
 `;
 
 const WeeklyClosingContainer = styled.div`
   width: 100%;
+  margin-top: 5%;
 `;
 
 const ExpectedBudgetContainer = styled.div`
-  display: block;
   width: 100%;
+  display: grid;
 `;
 
 const ProfitContainer = styled.div`
   display: grid;
   grid-auto-flow: column;
-  grid-column-gap: 3px;
+  grid-column-gap: 5%;
+`;
+
+const TotalBudgetContainer = styled.div`
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: end;
+  justify-items: end;
+  margin-right: 5%;
+  margin: 5% 0;
+`;
+
+const BudgetItem = styled.div`
+  font-size: 13px;
+  padding: 0 5px 0 3px;
+  border-bottom: 1px solid #957e5f;
 `;
 
 const FixedExpenditureContainer = styled.div``;
-
-const TotalProfitContainer = styled.div`
-  display: grid;
-  justify-items: end;
-  margin-right: 15%;
-`;
 
 const PageBottomContainer = styled.div`
   display: grid;
   grid-auto-flow: column;
   justify-content: space-between;
+  align-items: end;
+  grid-template-columns: 45% 45%;
+  grid-template-rows: 25vh;
+  margin-bottom: 5%;
 `;
 
-export default WeeklyPlannerView;
+export default MonthlyPlannerView;

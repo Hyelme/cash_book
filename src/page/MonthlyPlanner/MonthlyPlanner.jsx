@@ -1,5 +1,5 @@
-import { useEffect, useLayoutEffect, useMemo, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLayoutEffect, useMemo, useState } from "react";
+import { useParams } from "react-router-dom";
 import {
   payPlanColumn,
   calendarColumns,
@@ -15,11 +15,10 @@ import {
   setLocalStorage,
   getSaveData,
 } from "./data/MonthlyPlannerFunc";
-import WeeklyPlannerView from "./MonthlyPlannerView";
+import MonthlyPlannerView from "./MonthlyPlannerView";
 import TableCell from "components/Table/components/TableCell";
 
-const WeeklyPlanner = () => {
-  const navigator = useNavigate();
+const MonthlyPlanner = () => {
   const { year, month } = useParams();
 
   /* 월급 내역 */
@@ -84,7 +83,15 @@ const WeeklyPlanner = () => {
       initOneTableData(
         "prevMonthBalance",
         prevMonthBalance === 0 ? (
-          <input type="text" style={{ width: "99%" }} />
+          <input
+            type="text"
+            style={{
+              width: "90%",
+              margin: "3px 0",
+              border: "none",
+              backgroundColor: "#ffffff00",
+            }}
+          />
         ) : (
           <div onClick={handleOnClickPrevMonth}>{prevMonthBalance} 원</div>
         )
@@ -100,7 +107,15 @@ const WeeklyPlanner = () => {
       initOneTableData(
         "expectedProfit1",
         expectedprofit1 === 0 ? (
-          <input type="text" style={{ width: "99%" }} />
+          <input
+            type="text"
+            style={{
+              width: "90%",
+              margin: "3px 0",
+              border: "none",
+              backgroundColor: "#ffffff00",
+            }}
+          />
         ) : (
           <div>{expectedprofit1} 원</div>
         )
@@ -116,7 +131,15 @@ const WeeklyPlanner = () => {
       initOneTableData(
         "expectedProfit2",
         expectedprofit2 === 0 ? (
-          <input type="text" style={{ width: "99%" }} />
+          <input
+            type="text"
+            style={{
+              width: "90%",
+              margin: "3px 0",
+              border: "none",
+              backgroundColor: "#ffffff00",
+            }}
+          />
         ) : (
           <div>{expectedprofit2} 원</div>
         )
@@ -129,7 +152,11 @@ const WeeklyPlanner = () => {
     []
   );
   const memoData = useMemo(
-    () => initOneTableData("monthlyConsmPlan", <textarea></textarea>),
+    () =>
+      initOneTableData(
+        "monthlyConsmPlan",
+        <textarea className="textarea width-80 height-100"></textarea>
+      ),
     []
   );
   const currentBudgetColumn = useMemo(
@@ -141,9 +168,6 @@ const WeeklyPlanner = () => {
     [currentbudget]
   );
 
-  const handleOnClickLabel = (event) => {
-    navigator(`/cashbook/2024/cover`);
-  };
   const handleOnClickPrevMonth = (event) => {
     alert(event.target.value);
   };
@@ -169,10 +193,9 @@ const WeeklyPlanner = () => {
   };
 
   return (
-    <WeeklyPlannerView
+    <MonthlyPlannerView
       year={year}
       month={month}
-      clickLabel={handleOnClickLabel}
       colcBudget={colcBudget}
       payPlanTableColumns={payPlanColumn}
       payPlanTableData={memoForPayPlanData}
@@ -194,4 +217,4 @@ const WeeklyPlanner = () => {
   );
 };
 
-export default WeeklyPlanner;
+export default MonthlyPlanner;
