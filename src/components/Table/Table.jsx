@@ -32,7 +32,7 @@ const useInstance = (instance) => {
   Object.assign(instance, { rowSpanHeaders });
 };
 
-const Table = ({ classNameList, columns, data }) => {
+const Table = ({ classNameList, columns, data, colgroupList }) => {
   const {
     getTableProps,
     getTableBodyProps,
@@ -50,17 +50,24 @@ const Table = ({ classNameList, columns, data }) => {
 
   return (
     <table className={classNameList.tableCN} {...getTableProps()}>
+      {colgroupList !== undefined && (
+        <colgroup>
+          {colgroupList.map((col, index) => (
+            <col key={index} width={`${col}%`} />
+          ))}
+        </colgroup>
+      )}
       <thead>
         {rowSpanHeaders.length === 0 &&
           headerGroups.map((headerGroup) => (
             <tr
-              className={classNameList.trCN}
+              // className={classNameList.trCN}
               {...headerGroup.getHeaderGroupProps()}
             >
-              {headerGroup.headers.map((column) => {
+              {headerGroup.headers.map((column, index) => {
                 return (
                   <th
-                    className={classNameList.thCN}
+                    className={classNameList.thCN[index]}
                     {...column.getHeaderProps()}
                   >
                     {column.render("Header")}
@@ -100,12 +107,12 @@ const Table = ({ classNameList, columns, data }) => {
         {rows.map((row) => {
           return (
             <tr className={classNameList.trCN} {...row.getRowProps()}>
-              {row.cells.map((cell) => {
+              {row.cells.map((cell, index) => {
                 if (cell.isRowSpanned) return null;
                 else
                   return (
                     <td
-                      className={classNameList.tdCN}
+                      className={classNameList.tdCN[index]}
                       rowSpan={cell.rowSpan}
                       {...cell.getCellProps()}
                     >

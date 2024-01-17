@@ -34,8 +34,9 @@ const TableCellContainer = styled.div`
 `;
 
 const Cell = styled.input`
-  border: none;
   width: 70%;
+  border: none;
+  background-color: #ffffff00;
   text-align: end;
 `;
 

@@ -1,12 +1,186 @@
-.table {
-    font-size: 10px;
+table {
     width: 100%;
+    font-size: 10px;
+    border-color: #957e5f;
+    border-collapse: collapse;
+}
+
+tr {
+    border-color: #957e5f;
+}
+
+th {
+    border-color: #957e5f;
+}
+
+td {
+    border-color: #957e5f;
+}
+
+td > * {
+    margin: 5px 0;
 }
 
 .calendar {
     display: table;
 }
 
+/* 배경 설정 */
+.background-color-white8c {
+    background-color: #ffffff8c;
+}
+
+/* 높이 설정 */
+.height-30 {
+    height: 30%;
+}
+
+/* 1 * 2 테이블 */
+.one-table {
+    border-style: solid;
+}
+
+.one-table-bold {
+    border-width: 1.5px;
+}
+
+.one-table-middle {
+    border-width: 1px;
+}
+
+.one-table-thin {
+    border-width: 0.5px;
+}
+
+/* 좌/우 */
+.horizontal-off-line {
+    border-right: none;
+    border-left: none;
+}
+
+.horizontal-solid-line {
+    border-right-style: solid;
+    border-left-style: solid;
+}
+
+.horizontal-dash-line {
+    border-right-style: dashed;
+    border-left-style: dashed;
+}
+
+.horizontal-bold {
+    border-right-width: 1.5px;
+    border-left-width: 1.5px;
+}
+
+.horizontal-middle {
+    border-right-width: 1px;
+    border-left-width: 1px;
+}
+
+.horizontal-thin {
+    border-right-width: 0.5px;
+    border-left-width: 0.5px;
+}
+
+
+/* 상/하 */
+.vertical-solid-line {
+    border-top-style: solid;
+    border-bottom-style: solid;
+}
+
+.vertical-dash-line {
+    border-top-style: dashed;
+    border-bottom-style: dashed;
+}
+
+.vertical-bold {
+    border-top-width: 1.5px;
+    border-bottom-width: 1.5px;
+}
+
+.vertical-middle {
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+}
+
+.vertical-thin {
+    border-top-width: 0.5px;
+    border-bottom-width: 0.5px;
+}
+
+/* 방향별 line 종류 */ 
+.top-solid-line {
+    border-top-style: solid;
+}
+.left-solid-line {
+    border-left-style: solid;
+}
+.bottom-solid-line {
+    border-bottom-style: solid;
+}
+.right-solid-line {
+    border-right-style: solid;
+}
+
+.top-dash-line {
+    border-top-style: dashed;
+}
+.left-dash-line {
+    border-left-style: dashed;
+}
+.bottom-dash-line {
+    border-bottom-style: dashed;
+}
+.right-dash-line {
+    border-right-style: dashed;
+}
+
+/* 방향별 line 굵기 */
+.top-bold {
+    border-top-width: 1.5px;
+}
+.left-bold {
+    border-left-width: 1.5px;
+}
+.bottom-bold {
+    border-bottom-width: 1.5px;
+}
+.right-bold {
+    border-right-width: 1.5px;
+}
+
+.top-middle {
+    border-top-width: 1px;
+}
+.left-middle {
+    border-left-width: 1px;
+}
+.bottom-middle {
+    border-bottom-width: 1px;
+}
+.right-middle {
+    border-right-width: 1px;
+}
+
+.top-thin {
+    border-top-width: 0.5px;
+}
+.left-thin {
+    border-left-width: 0.5px;
+}
+.bottom-thin {
+    border-bottom-width: 0.5px;
+}
+.right-thin {
+    border-right-width: 0.5px;
+}
+
+/* margin 설정 */
+.vertical-margin-10px {
+    margin: 10px 0;
+}
 
 /* TableCell 컴포넌트 스타일 */
 .enable-input {
