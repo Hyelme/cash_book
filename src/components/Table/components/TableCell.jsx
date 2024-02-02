@@ -1,29 +1,57 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
-const TableCell = ({ type, value, setLocalStorage }) => {
+const TableCell = ({ type, label, value, setLocalStorage }) => {
   const [inputData, setInputData] = useState(value);
-  // const searchRef = useRef(null);
+  const [isClick, setIsClick] = useState(false);
+  const focusRef = useRef();
 
-  // useEffect(() => {
-  //   const handleFocus = (event) => {
-  //     if (searchRef.current && !searchRef.current.contains(event.target))
-  //       setIsFocus(false);
-  //   };
+  useEffect(() => {
+    setInputData(value);
+  }, [value]);
 
-  //   document.addEventListener("mouseup", handleFocus);
-  //   return () => document.removeEventListener("mouseup", handleFocus);
-  // }, [searchRef]);
+  useEffect(() => {
+    if (isClick && focusRef.current !== undefined) {
+      focusRef.current.focus();
+    }
+  }, [isClick]);
 
   const handleOnChange = (event) => {
     setInputData(event.target.value);
-    console.log(inputData);
-    setLocalStorage(inputData, type);
+    setLocalStorage(event.target.value, label);
+  };
+
+  const handleOnClick = () => {
+    setIsClick(true);
+  };
+
+  const handleOnBlur = () => {
+    setIsClick(false);
+  };
+
+  const getNumberFormat = () => {
+    return inputData > 0
+      ? inputData.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
+      : inputData.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
   };
 
   return (
-    <TableCellContainer key={type}>
-      <Cell value={inputData} onChange={handleOnChange} /> 원
+    <TableCellContainer>
+      {isClick ? (
+        <InputCell
+          type={type}
+          id={label}
+          value={inputData}
+          onChange={handleOnChange}
+          ref={focusRef}
+          onBlur={handleOnBlur}
+        />
+      ) : (
+        <TxtCell onClick={handleOnClick}>
+          {type === "number" ? getNumberFormat() : inputData}
+        </TxtCell>
+      )}
+      원
     </TableCellContainer>
   );
 };
@@ -33,8 +61,29 @@ const TableCellContainer = styled.div`
   height: 100%;
 `;
 
-const Cell = styled.input`
+const InputCell = styled.input`
   width: 70%;
+  border: none;
+  background-color: #ffffff00;
+  text-align: end;
+  font-size: 10px;
+
+  &[type="number"]::-webkit-outer-spin-button,
+  &[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  &[type="number"] {
+    -moz-appearance: textfield;
+  }
+`;
+
+const TxtCell = styled.div`
+  width: 70%;
+  display: inline-block;
+  margin-right: 3px;
   border: none;
   background-color: #ffffff00;
   text-align: end;

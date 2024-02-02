@@ -1,18 +1,6 @@
 import { useTable } from "react-table";
 import "./Table.css";
 
-/**
- * {
-  tableCN,
-  isThColspan,
-  isAllRowspan,
-  colItem,
-  rowItem,
-  rowSize,
-  colHeight,
-  rowRatio,
-}
- */
 const useInstance = (instance) => {
   const { allColumns } = instance;
 
@@ -61,7 +49,7 @@ const Table = ({ classNameList, columns, data, colgroupList }) => {
         {rowSpanHeaders.length === 0 &&
           headerGroups.map((headerGroup) => (
             <tr
-              // className={classNameList.trCN}
+              className={classNameList.theadTrCN}
               {...headerGroup.getHeaderGroupProps()}
             >
               {headerGroup.headers.map((column, index) => {
@@ -106,7 +94,7 @@ const Table = ({ classNameList, columns, data, colgroupList }) => {
         })}
         {rows.map((row) => {
           return (
-            <tr className={classNameList.trCN} {...row.getRowProps()}>
+            <tr className={classNameList.tbodyTrCN} {...row.getRowProps()}>
               {row.cells.map((cell, index) => {
                 if (cell.isRowSpanned) return null;
                 else

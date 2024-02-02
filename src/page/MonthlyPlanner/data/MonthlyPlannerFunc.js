@@ -1,10 +1,4 @@
-const getSaveData = (key) => {
-  const saveData = JSON.parse(localStorage.getItem(key));
-
-  console.log("save data : " + JSON.stringify(saveData));
-
-  return saveData;
-};
+const getSaveData = (key) => JSON.parse(localStorage.getItem(key));
 
 const initPayPlanCell = (key, data) => {
   if(data !== null && data[key] !== undefined) return data[key];
@@ -49,7 +43,7 @@ const initFixedExpenditure = (year, month) => {
 };
 
 const setLocalStorage = (key, data, type) => {
-  const originData = getSaveData();
+  const originData = getSaveData(key);
 
   if (originData !== null) {
     originData[type] = data;

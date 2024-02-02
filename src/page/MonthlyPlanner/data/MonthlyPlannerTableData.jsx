@@ -1,8 +1,11 @@
+import WeeklyClosingCell from "../components/WeeklyClosingCell/WeeklyClosingCell";
+
 /* ClassName List */
 const payPlanClassNameList = {
   tableCN: "table vertical-solid-line vertical-bold horizontal-off-line",
   thCN: "",
-  trCN: "bottom-dash-line bottom-middle",
+  theadTrCN: "",
+  tbodyTrCN: "bottom-dash-line bottom-middle",
   tdCN: ["right-solid-line right-bold", "right-dash-line right-middle", ""],
 };
 
@@ -10,15 +13,16 @@ const calendarClassNameList = {
   tableCN:
     "calendar vertical-solid-line vertical-middle horizontal-dash-line horizontal-middle",
   thCN: [
-    "bottom-solid-line bottom-middle right-dash-line right-middle",
-    "bottom-solid-line bottom-middle right-dash-line right-middle",
-    "bottom-solid-line bottom-middle right-dash-line right-middle",
-    "bottom-solid-line bottom-middle right-dash-line right-middle",
-    "bottom-solid-line bottom-middle right-dash-line right-middle",
-    "bottom-solid-line bottom-middle right-dash-line right-middle",
-    "bottom-solid-line bottom-middle ",
+    "right-dash-line right-middle",
+    "right-dash-line right-middle",
+    "right-dash-line right-middle",
+    "right-dash-line right-middle",
+    "right-dash-line right-middle",
+    "right-dash-line right-middle",
+    "",
   ],
-  trCN: "bottom-dash-line bottom-middle",
+  theadTrCN: "bottom-solid-line bottom-middle",
+  tbodyTrCN: "bottom-dash-line bottom-middle",
   tdCN: [
     "right-dash-line right-middle",
     "right-dash-line right-middle",
@@ -31,7 +35,8 @@ const calendarClassNameList = {
 };
 
 const weeklyClosingClassNameList = {
-  tableCN: "table vertical-solid-line top-bold bottom-bold horizontal-off-line",
+  tableCN:
+    "table vertical-solid-line top-thin bottom-middle horizontal-off-line",
   thCN: [
     "vertical-solid-line top-thin bottom-thin horizontal-dash-line horizontal-thin",
     "vertical-solid-line top-thin bottom-thin horizontal-dash-line horizontal-thin",
@@ -40,7 +45,8 @@ const weeklyClosingClassNameList = {
     "vertical-solid-line top-thin bottom-thin horizontal-dash-line horizontal-thin",
     "vertical-solid-line top-thin bottom-thin horizontal-dash-line horizontal-thin",
   ],
-  trCN: "",
+  theadTrCN: "",
+  tbodyTrCN: "top-solid-line top-middle background-color-ffe4a9",
   tdCN: [
     "horizontal-dash-line horizontal-thin",
     "horizontal-dash-line horizontal-thin",
@@ -54,21 +60,24 @@ const weeklyClosingClassNameList = {
 const oneColTableClassNameList = {
   tableCN: "table one-table one-table-middle",
   thCN: ["bottom-dash-line bottom-middle"],
-  trCN: "",
+  theadTrCN: "",
+  tbodyTrCN: "",
   tdCN: "",
 };
 
 const fixedExpenditureClassNameList = {
   tableCN: "table vertical-solid-line vertical-bold",
   thCN: ["bottom-solid-line bottom-middle"],
-  trCN: "",
+  theadTrCN: "",
+  tbodyTrCN: "",
   tdCN: "",
 };
 
 const memoClassNameList = {
   tableCN: "memo vertical-solid-line vertical-thin",
   thCN: ["bottom-solid-line bottom-thin"],
-  trCN: "",
+  theadTrCN: "",
+  tbodyTrCN: "",
   tdCN: ["background-color-white8c"],
 };
 
@@ -173,16 +182,16 @@ const weeklyClosingColumns = [
   },
 ];
 
-const weeklyClosingData = [
-  {
-    firstWeek: <div>firstWeek</div>,
-    secondWeek: <div>secondWeek</div>,
-    thirdWeek: <div>thridWeek</div>,
-    fourthWeek: <div>fourthWeek</div>,
-    fifthWeek: <div>fifthWeek</div>,
-    sixthWeek: <div>sixthWeek</div>,
-  },
-];
+// const weeklyClosingData = [
+//   {
+//     firstWeek: <WeeklyClosingCell />,
+//     secondWeek: <WeeklyClosingCell />,
+//     thirdWeek: <WeeklyClosingCell />,
+//     fourthWeek: <WeeklyClosingCell />,
+//     fifthWeek: <WeeklyClosingCell />,
+//     sixthWeek: <WeeklyClosingCell />,
+//   },
+// ];
 
 /* 1 * 2 테이블 */
 const oneColTableColumn = [
@@ -203,6 +212,6 @@ export {
   payPlanData,
   calendarColumns,
   weeklyClosingColumns,
-  weeklyClosingData,
+  //  weeklyClosingData,
   oneColTableColumn,
 };

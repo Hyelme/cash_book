@@ -1,10 +1,8 @@
-import { useLayoutEffect, useMemo, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useEffect, useMemo, useState } from "react";
 import {
   payPlanColumn,
   calendarColumns,
   weeklyClosingColumns,
-  weeklyClosingData,
   oneColTableColumn,
 } from "./data/MonthlyPlannerTableData";
 import {
@@ -17,22 +15,45 @@ import {
 } from "./data/MonthlyPlannerFunc";
 import MonthlyPlannerView from "./MonthlyPlannerView";
 import TableCell from "components/Table/components/TableCell";
+import { useDispatch, useSelector } from "react-redux";
+import { setBasicPay, setBonusPay } from "store/monthlyPlan/monthlyPlan";
+import WeeklyClosingCell from "./components/WeeklyClosingCell/WeeklyClosingCell";
 
 const MonthlyPlanner = () => {
-  const { year, month } = useParams();
+  const dispatch = useDispatch();
+
+  const year = useSelector((state) => state.cashbook.year);
+  const month = useSelector((state) => state.cashbook.month);
+
+  useEffect(() => {
+    const dataOnPayPlan = getSaveData(year + ":" + month + ".payPlan");
+    dispatch(setBasicPay(parseInt(initPayPlanCell("basicPay", dataOnPayPlan))));
+    dispatch(setBonusPay(parseInt(initPayPlanCell("bonusPay", dataOnPayPlan))));
+  }, [year, month, dispatch]);
+
+  const colcBudget = (props) => {
+    let total = 0;
+    for (let variable in props) {
+      switch (variable) {
+        case "prevMouthBalance":
+          total += prevMonthBalance;
+          break;
+        case "expectedProfit1":
+          total += expectedprofit1;
+          break;
+        case "expectedProfit2":
+          total += expectedprofit2;
+          break;
+        default:
+          return 0;
+      }
+    }
+    return total;
+  };
 
   /* 월급 내역 */
-  const [basicPay, setBasicPay] = useState(0);
-  const [bonusPay, setBonusPay] = useState(0);
-
-  useLayoutEffect(() => {
-    const dataOnPayPlan = getSaveData(year + ":" + month + ".payPlan");
-
-    setBasicPay(parseInt(initPayPlanCell("basicPay", dataOnPayPlan)));
-    setBonusPay(parseInt(initPayPlanCell("bonusPay", dataOnPayPlan)));
-  }, [year, month]);
-
-  console.log("basic pay : " + basicPay);
+  const basicPay = useSelector((state) => state.monthlyPlan.basicPay);
+  const bonusPay = useSelector((state) => state.monthlyPlan.bonusPay);
 
   const memoForPayPlanData = useMemo(
     () => [
@@ -41,18 +62,28 @@ const MonthlyPlanner = () => {
         secondLabel: "기본급",
         item: (
           <TableCell
-            type="basicPay"
+            type="number"
+            label="basicPay"
             value={basicPay}
-            setLocalStorage={(data, type) =>
-              setLocalStorage(year + ":" + month + ".payPlan", data, type)
-            }
+            setLocalStorage={(data, type) => {
+              setLocalStorage(year + ":" + month + ".payPlan", data, type);
+            }}
           />
         ),
       },
       {
         firstLabel: "월급",
         secondLabel: "보너스",
-        item: <TableCell type="bonusPay" value={bonusPay} />,
+        item: (
+          <TableCell
+            type="number"
+            label="bonusPay"
+            value={bonusPay}
+            setLocalStorage={(data, type) => {
+              setLocalStorage(year + ":" + month + ".payPlan", data, type);
+            }}
+          />
+        ),
       },
     ],
     [basicPay, bonusPay, month, year]
@@ -61,13 +92,27 @@ const MonthlyPlanner = () => {
   const [prevMonthBalance, setPrevMonthBalance] = useState(0);
   const [expectedprofit1, setExpectedprofit1] = useState(0);
   const [expectedprofit2, setExpectedprofit2] = useState(0);
-  const [currentbudget, setCurrentbudget] = useState(0);
+  const [currentbudget, setCurrentbudget] = useState(() =>
+    colcBudget(["prevMonthBalanc", "expectedProfit1", "expectedProfit2"])
+  );
 
-  // const memoForPayPlanColumn = useMemo(() => payPlanColumn, []);
-  // const memoForPayPlanData = useMemo(() => payPlanData, []);
   const memoForCalendarColum = useMemo(() => calendarColumns, []);
   const memoForWeeklyClosingColumn = useMemo(() => weeklyClosingColumns, []);
-  const memoForWeeklyClosingData = useMemo(() => weeklyClosingData, []);
+  // const memoForWeeklyClosingData = useMemo(() => weeklyClosingData, []);
+
+  const memoForWeeklyClosingData = useMemo(
+    () => [
+      {
+        firstWeek: <WeeklyClosingCell month={month} week={1} />,
+        secondWeek: <WeeklyClosingCell month={month} week={2} />,
+        thirdWeek: <WeeklyClosingCell month={month} week={3} />,
+        fourthWeek: <WeeklyClosingCell month={month} week={4} />,
+        fifthWeek: <WeeklyClosingCell month={month} week={5} />,
+        sixthWeek: <WeeklyClosingCell month={month} week={6} />,
+      },
+    ],
+    []
+  );
 
   const prevMonthBalanceColumn = useMemo(
     () =>
@@ -84,7 +129,7 @@ const MonthlyPlanner = () => {
         "prevMonthBalance",
         prevMonthBalance === 0 ? (
           <input
-            type="text"
+            type="number"
             style={{
               width: "90%",
               margin: "3px 0",
@@ -170,26 +215,6 @@ const MonthlyPlanner = () => {
 
   const handleOnClickPrevMonth = (event) => {
     alert(event.target.value);
-  };
-
-  const colcBudget = (props) => {
-    let total = 0;
-    for (let variable in props) {
-      switch (variable) {
-        case "prevMouthBalance":
-          total += prevMonthBalance;
-          break;
-        case "expectedProfit1":
-          total += expectedprofit1;
-          break;
-        case "expectedProfit2":
-          total += expectedprofit2;
-          break;
-        default:
-          return 0;
-      }
-    }
-    return total;
   };
 
   return (
