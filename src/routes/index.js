@@ -13,7 +13,7 @@ export const UrlPaths = {
       monthly: {
         index: '/monthly/:month/*',
         planner: '/planner',
-        weekly: '/weekly/:week',
+        weekly: '/weekly/:week/:page',
         closing: '/closing',
       },
     },
