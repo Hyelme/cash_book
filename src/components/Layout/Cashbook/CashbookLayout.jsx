@@ -2,20 +2,28 @@ import Button from "components/Button";
 import HeaderLine from "components/HeaderLine";
 import MonthsLabel from "components/Label/MonthsLabel";
 import Slider from "components/Slider";
-import { useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import { setYear, setMonth } from "store/cashbook/cashbook";
 import styled from "styled-components";
 
 const months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 const CashbookLayout = ({ children }) => {
   const navigator = useNavigate();
+  const dispatch = useDispatch();
   const { year, month } = useParams();
-  const [currMonth, setCurrMonth] = useState(month);
+
+  useEffect(() => {
+    dispatch(setYear(parseInt(year)));
+    dispatch(setMonth(parseInt(month)));
+  }, []);
+
+  const currMonth = useSelector((state) => state.cashbook.month);
 
   const handleOnClickMonthLabel = (event) => {
-    setCurrMonth(event.target.innerText);
-    // store month 변경
+    dispatch(setMonth(parseInt(event.target.innerText)));
     navigator(`/cashbook/2024/monthly/${event.target.innerText}/planner`);
   };
   const handleOnClickGoToIndexButton = () => {
