@@ -1,0 +1,15 @@
+.days-red {
+    color: red;
+}
+
+.days-blue {
+    color: blue;
+}
+
+.days-black {
+    color: black;
+}
+
+.days-non-current {
+    color: rgb(141, 141, 141);
+}
