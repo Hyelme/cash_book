@@ -201,7 +201,7 @@ const TotalBudgetContainer = styled.div`
 const BudgetItem = styled.div`
   font-size: 13px;
   padding: 0 5px 0 3px;
-  border-bottom: 1px solid #957e5f;
+  border-bottom: 1px solid var(--line-or-char);
 `;
 
 const FixedExpenditureContainer = styled.div``;

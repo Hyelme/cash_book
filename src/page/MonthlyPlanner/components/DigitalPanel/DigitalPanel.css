@@ -1,3 +1,6 @@
+@import url("/src/variable.css");
+
+
 /* 공통 */
 .hexagon {
     position: relative;
@@ -76,9 +79,9 @@
     width: 50%;
     aspect-ratio: 1 / 0.19;
     /* margin: 1vw 0; */
-    background-color: #957E5F;
-    border-top: solid 2.99px #957E5F; /* 외곽라인 두께및 색상 */
-    border-bottom: solid 2.99px #957E5F; /* 외곽라인 두께및 색상 */
+    background-color: var(--digital-num);
+    border-top: solid 2.99px var(--digital-num); /* 외곽라인 두께및 색상 */
+    border-bottom: solid 2.99px var(--digital-num); /* 외곽라인 두께및 색상 */
 }
 
 .horizontal-active:before,
@@ -98,14 +101,14 @@
 
 .horizontal-active:before {
     left: -19%;
-    border-top: solid 2.499px #957E5F; /* 외곽라인 두께및 색상 */
-    border-right: solid 2.499px #957E5F; /* 외곽라인 두께및 색상 */
+    border-top: solid 2.499px var(--digital-num); /* 외곽라인 두께및 색상 */
+    border-right: solid 2.499px var(--digital-num); /* 외곽라인 두께및 색상 */
 }
 
 .horizontal-active:after {
     right: -20%;
-    border-bottom: solid 2.499px #957E5F; /* 외곽라인 두께및 색상 */
-    border-left: solid 2.499px #957E5F; /* 외곽라인 두께및 색상 */
+    border-bottom: solid 2.499px var(--digital-num); /* 외곽라인 두께및 색상 */
+    border-left: solid 2.499px var(--digital-num); /* 외곽라인 두께및 색상 */
 }
 
 
@@ -151,9 +154,9 @@
     height: 50%;
     aspect-ratio: 0.19 / 1;
     /* margin: 8px 0; */
-    background-color: #957E5F;
-    border-left: solid 2.99px #957E5F; /* 외곽라인 두께및 색상 */
-    border-right: solid 2.99px #957E5F; /* 외곽라인 두께및 색상 */
+    background-color: var(--digital-num);
+    border-left: solid 2.99px var(--digital-num); /* 외곽라인 두께및 색상 */
+    border-right: solid 2.99px var(--digital-num); /* 외곽라인 두께및 색상 */
 }
 
 .vertical-active:before,
@@ -173,14 +176,14 @@
 
 .vertical-active:before {
     top: -17%;
-    border-top: solid 2.499px #957E5F; /* 외곽라인 두께및 색상 */
-    border-left: solid 2.499px #957E5F; /* 외곽라인 두께및 색상 */
+    border-top: solid 2.499px var(--digital-num); /* 외곽라인 두께및 색상 */
+    border-left: solid 2.499px var(--digital-num); /* 외곽라인 두께및 색상 */
 }
 
 .vertical-active:after {
     bottom: -17%;
-    border-bottom: solid 2.499px #957E5F; /* 외곽라인 두께및 색상 */
-    border-right: solid 2.499px #957E5F; /* 외곽라인 두께및 색상 */
+    border-bottom: solid 2.499px var(--digital-num); /* 외곽라인 두께및 색상 */
+    border-right: solid 2.499px var(--digital-num); /* 외곽라인 두께및 색상 */
 }
 
 /* 수직 non-active */

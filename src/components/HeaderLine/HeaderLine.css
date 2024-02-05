@@ -1,5 +1,7 @@
+@import url("/src/variable.css");
+
 .headerLineBox {
     width: 100%;
     height: 30px;
-    background-color: #f1ce83;
+    background-color: var(--main-color);
 }
