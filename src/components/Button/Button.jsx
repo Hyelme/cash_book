@@ -1,6 +1,5 @@
 import React from "react";
-import styles from "./Button.css";
-
+import styles from "./button.module.css";
 import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
@@ -15,9 +14,13 @@ const Button = ({
   ...props
 }) => {
   return (
-    <div className="btn-container">
+    <div className={styles["btn-container"]}>
       {theme === "label" && (
-        <div className={`label-btn-front ${size}-front`}>₩</div>
+        <div
+          className={`${styles["label-btn-front"]} ${styles[size + "-front"]}`}
+        >
+          ₩
+        </div>
       )}
       <button
         type="button"
