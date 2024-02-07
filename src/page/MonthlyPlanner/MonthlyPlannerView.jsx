@@ -1,7 +1,7 @@
 import "./MonthlyPlanner.css";
-import Button from "components/Button";
+import Button from "@/components/Button";
 import DigitalPanel from "./components/DigitalPanel";
-import Table from "components/Table";
+import Table from "@/components/Table";
 import Calendar from "./components/Calendar";
 import styled from "styled-components";
 import {
@@ -13,7 +13,7 @@ import {
   memoClassNameList,
 } from "./data/MonthlyPlannerTableData";
 import { useEffect, useState } from "react";
-import CashbookLayout from "components/Layout/Cashbook";
+import CashbookLayout from "@/components/Layout/Cashbook";
 
 // export interface ButtonProps {
 //   theme?: "basic" | "label";

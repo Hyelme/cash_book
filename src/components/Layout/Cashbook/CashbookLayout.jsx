@@ -1,11 +1,11 @@
-import Button from "components/Button";
-import HeaderLine from "components/HeaderLine";
-import MonthsLabel from "components/Label/MonthsLabel";
-import Slider from "components/Slider";
+import Button from "@/components/Button";
+import HeaderLine from "@/components/HeaderLine";
+import MonthsLabel from "@/components/Label/MonthsLabel";
+import Slider from "@/components/Slider";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { setYear, setMonth } from "store/cashbook/cashbook";
+import { setYear, setMonth } from "@/store/cashbook/cashbook";
 import styled from "styled-components";
 
 const months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];

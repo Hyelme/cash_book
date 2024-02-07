@@ -1,14 +1,14 @@
 const getSaveData = (key) => JSON.parse(localStorage.getItem(key));
 
 const initPayPlanCell = (key, data) => {
-  if(data !== null && data[key] !== undefined) return data[key];
+  if (data !== null && data[key] !== undefined) return data[key];
   return 0;
 };
 
 const initOneTableColumn = (header, accessor) => {
   return [{ Header: header, accessor: accessor }];
 };
-  
+
 const initOneTableData = (accessor, data) => {
   const newData = {};
   newData[accessor] = data;
@@ -55,12 +55,11 @@ const setLocalStorage = (key, data, type) => {
   }
 };
 
-
 export {
   getSaveData,
   initPayPlanCell,
   initOneTableColumn,
   initOneTableData,
   initFixedExpenditure,
-  setLocalStorage
-}
+  setLocalStorage,
+};

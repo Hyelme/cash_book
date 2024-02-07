@@ -1,5 +1,5 @@
 import "./Calendar.css";
-import Table from "components/Table";
+import Table from "@/components/Table";
 import { useMemo } from "react";
 import getMonthData from "./data/CalendarFunc";
 import styled from "styled-components";

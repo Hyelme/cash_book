@@ -14,9 +14,9 @@ import {
   getSaveData,
 } from "./data/MonthlyPlannerFunc";
 import MonthlyPlannerView from "./MonthlyPlannerView";
-import TableCell from "components/Table/components/TableCell";
+import TableCell from "@/components/Table/components/TableCell";
 import { useDispatch, useSelector } from "react-redux";
-import { setBasicPay, setBonusPay } from "store/monthlyPlan/monthlyPlan";
+import { setBasicPay, setBonusPay } from "@/store/monthlyPlan/monthlyPlan";
 import WeeklyClosingCell from "./components/WeeklyClosingCell/WeeklyClosingCell";
 
 const MonthlyPlanner = () => {
@@ -128,20 +128,23 @@ const MonthlyPlanner = () => {
       initOneTableData(
         "prevMonthBalance",
         prevMonthBalance === 0 ? (
-          <input
+          <TableCell
             type="number"
-            style={{
-              width: "90%",
-              margin: "3px 0",
-              border: "none",
-              backgroundColor: "#ffffff00",
+            label="prevMonthBalance"
+            value={prevMonthBalance}
+            setLocalStorage={(data, type) => {
+              setLocalStorage(
+                year + ":" + month + ".expectedBudget",
+                data,
+                type
+              );
             }}
           />
         ) : (
           <div onClick={handleOnClickPrevMonth}>{prevMonthBalance} 원</div>
         )
       ),
-    [prevMonthBalance]
+    [month, prevMonthBalance, year]
   );
   const expectedProfit1Column = useMemo(
     () => initOneTableColumn("예상 수입 (1)", "expectedProfit1"),
@@ -152,20 +155,23 @@ const MonthlyPlanner = () => {
       initOneTableData(
         "expectedProfit1",
         expectedprofit1 === 0 ? (
-          <input
-            type="text"
-            style={{
-              width: "90%",
-              margin: "3px 0",
-              border: "none",
-              backgroundColor: "#ffffff00",
+          <TableCell
+            type="number"
+            label="expectedProfit1"
+            value={expectedprofit1}
+            setLocalStorage={(data, type) => {
+              setLocalStorage(
+                year + ":" + month + ".expectedBudget",
+                data,
+                type
+              );
             }}
           />
         ) : (
           <div>{expectedprofit1} 원</div>
         )
       ),
-    [expectedprofit1]
+    [expectedprofit1, month, year]
   );
   const expectedProfit2Column = useMemo(
     () => initOneTableColumn("예상 수입 (2)", "expectedProfit2"),
@@ -176,20 +182,23 @@ const MonthlyPlanner = () => {
       initOneTableData(
         "expectedProfit2",
         expectedprofit2 === 0 ? (
-          <input
-            type="text"
-            style={{
-              width: "90%",
-              margin: "3px 0",
-              border: "none",
-              backgroundColor: "#ffffff00",
+          <TableCell
+            type="number"
+            label="expectedProfit2"
+            value={expectedprofit2}
+            setLocalStorage={(data, type) => {
+              setLocalStorage(
+                year + ":" + month + ".expectedBudget",
+                data,
+                type
+              );
             }}
           />
         ) : (
           <div>{expectedprofit2} 원</div>
         )
       ),
-    [expectedprofit2]
+    [expectedprofit2, month, year]
   );
   const fixedExpenditure = useMemo(() => initFixedExpenditure(), []);
   const memoColumn = useMemo(

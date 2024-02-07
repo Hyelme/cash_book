@@ -1,7 +1,7 @@
-import { Route, Routes } from 'react-router-dom';
-import { UrlPaths } from './routes';
-import './App.css';
-import MonthlyPlanner from 'page/MonthlyPlanner';
+import { Route, Routes } from "react-router-dom";
+import { UrlPaths } from "./routes";
+import "./App.css";
+import MonthlyPlanner from "@/page/MonthlyPlanner";
 
 const Monthly = () => {
   return (
@@ -10,8 +10,8 @@ const Monthly = () => {
         path={UrlPaths.cashbook.monthly.planner}
         element={<MonthlyPlanner />}
       />
-      <Route path={UrlPaths.cashbook.monthly.weekly} element={''} />
-      <Route path={UrlPaths.cashbook.monthly.closing} element={''} />
+      <Route path={UrlPaths.cashbook.monthly.weekly} element={""} />
+      <Route path={UrlPaths.cashbook.monthly.closing} element={""} />
     </Routes>
   );
 };
@@ -19,10 +19,10 @@ const Monthly = () => {
 const CashBook = () => {
   return (
     <Routes>
-      <Route path={UrlPaths.cashbook.cover} element={''} />
-      <Route path={UrlPaths.cashbook.goal} element={''} />
-      <Route path={UrlPaths.cashbook.budgetCheck} element={''} />
-      <Route path={UrlPaths.cashbook.financeList} element={''} />
+      <Route path={UrlPaths.cashbook.cover} element={""} />
+      <Route path={UrlPaths.cashbook.goal} element={""} />
+      <Route path={UrlPaths.cashbook.budgetCheck} element={""} />
+      <Route path={UrlPaths.cashbook.financeList} element={""} />
       <Route path={UrlPaths.cashbook.monthly.index} element={<Monthly />} />
     </Routes>
   );

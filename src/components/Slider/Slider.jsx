@@ -1,6 +1,5 @@
+import { useState, useRef } from "react";
 import styled from "styled-components";
-
-const { useRef, useState } = require("react");
 
 const SliderComponent = ({ children, ...rest }) => {
   const containerRef = useRef(null);
