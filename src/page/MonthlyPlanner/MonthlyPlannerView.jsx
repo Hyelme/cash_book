@@ -14,16 +14,11 @@ import {
 } from "./data/MonthlyPlannerTableData";
 import { useEffect, useState } from "react";
 import CashbookLayout from "@/components/Layout/Cashbook";
+import {
+  TopContainer,
+  PageBottomContainer,
+} from "@/components/Layout/Styled/MonthlyStyled";
 
-// export interface ButtonProps {
-//   theme?: "basic" | "label";
-//   backgroundColor?: string;
-//   size?: "small" | "medium" | "large";
-//   onClick?: () => void;
-//   isDisabled?: boolean;
-//   children?: React.ReactNode;
-//   className?: string;
-// }
 const MonthlyPlannerView = ({
   year,
   month,
@@ -152,9 +147,6 @@ const MonthlyPlannerView = ({
   );
 };
 
-const TopContainer = styled.div`
-  display: flex;
-`;
 const PanelContainer = styled.div`
   display: flex;
   position: relative;
@@ -205,15 +197,5 @@ const BudgetItem = styled.div`
 `;
 
 const FixedExpenditureContainer = styled.div``;
-
-const PageBottomContainer = styled.div`
-  display: grid;
-  grid-auto-flow: column;
-  justify-content: space-between;
-  align-items: end;
-  grid-template-columns: 45% 45%;
-  grid-template-rows: 25vh;
-  margin-bottom: 5%;
-`;
 
 export default MonthlyPlannerView;
