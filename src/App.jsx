@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { UrlPaths } from "./routes";
 import "./App.css";
 import MonthlyPlanner from "@/page/MonthlyPlanner";
+import WeeklyPlanner from "@/page/WeeklyPlanner/index";
 
 const Monthly = () => {
   return (
@@ -10,7 +11,10 @@ const Monthly = () => {
         path={UrlPaths.cashbook.monthly.planner}
         element={<MonthlyPlanner />}
       />
-      <Route path={UrlPaths.cashbook.monthly.weekly} element={""} />
+      <Route
+        path={UrlPaths.cashbook.monthly.weekly}
+        element={<WeeklyPlanner />}
+      />
       <Route path={UrlPaths.cashbook.monthly.closing} element={""} />
     </Routes>
   );
